@@ -5,8 +5,9 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Nunito, Arial, Helvetica, sans-serif;
     line-height: 1.5;
+    background: #0c192c;
 
     --primary-text-color: #181820;
     --secondary-text-color: #5c5c62;
@@ -16,10 +17,49 @@ body {
     --text-decoration-color: #ff9a00;
 }
 
+/* bubbles */
+
+.main-container {
+    width: 100%;
+}
+
+.bubbles {
+    display: flex;
+}
+
+.bubbles .bubble-span {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: #f8af41;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #492c01, 0 0 50px #f8af41, 0 0 100px #f8af41;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(200s / var(--i));
+}
+
+.bubbles .bubble-span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(330vh) scale(0);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+/* ////// */
+
 .container {
     margin: 0 auto;
     padding: 0 30px;
     max-width: 900px;
+    z-index: 999;
 }
 
 .fh {
@@ -37,9 +77,12 @@ body {
 .resume {
     margin: 50px auto;
     border: 1px solid #f5f5f5;
-    box-shadow: 1px 1px 7px 7px #f5f5f5;
     padding: 30px 0;
     max-width: 900px;
+    background: white;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
 }
 
 .resume__block {
@@ -68,6 +111,7 @@ body {
     }
 }
 
+/* Contact info styles */
 .contact-info__header,
 .contact-info__sub-header {
     text-align: center;
@@ -93,6 +137,7 @@ body {
 
 .contact-info__block--center {
     justify-content: center;
+    align-items: center;
 }
 
 .contact-info__item {
@@ -122,15 +167,20 @@ body {
     vertical-align: text-bottom;
 }
 
+.contact-info__block a:hover {
+    color: rebeccapurple;
+}
+
 .contact-info__avatar {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border: 3px solid;
     border-color: var(--text-decoration-color);
 }
 
+/* Intro and skills styles */
 .intro {
     display: flex;
     justify-content: start;
@@ -157,6 +207,13 @@ body {
     text-align: justify;
 }
 
+.info-block__text {
+    color: var(--secondary-text-color);
+    text-align: justify;
+    display: flex;
+    justify-content: space-around;
+}
+
 .skills__header {
     color: var(--secondary-text-color);
     text-align: center;
@@ -167,6 +224,8 @@ body {
     color: var(--secondary-text-color);
     text-align: justify;
 }
+
+/* Experience and additional info styles */
 
 .experiences {
     flex: 1 1 60%;
@@ -179,42 +238,21 @@ body {
     margin-bottom: 20px;
 }
 
-.experiences__company-header-durability {
+.experiences__company-header-duration {
     color: var(--durability-text-color);
     text-align: left;
     margin-bottom: 10px;
     font-size: 15px;
 }
 
-.experiences__company-header-name {
+.project-description {
+    color: var(--text-decoration-color);
+    text-decoration: none;
+}
+
+.project-description:active {
     color: var(--primary-text-color);
-    text-decoration-color: var(--text-decoration-color);
-    text-decoration-line: underline;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.experiences__company-project {
-    margin-left: 15px;
-    margin-bottom: 25px;
-}
-
-.experiences__company-project-role {
-    color: var(--durability-text-color);
-    text-align: left;
-    margin-bottom: 10px;
-    font-size: 15px;
-}
-
-.experiences__company-project-name {
-    color: var(--primary-text-color);
-    text-align: left;
-    margin-bottom: 10px;
-}
-
-.experiences__company-project-responsibilities {
-    color: var(--secondary-text-color);
-    padding-left: 20px;
+    text-decoration: none;
 }
 
 .additional-info {
@@ -231,7 +269,7 @@ body {
     margin-bottom: 20px;
 }
 
-.additional-info__education-university-durability {
+.additional-info__education-university-duration {
     color: var(--durability-text-color);
     text-align: left;
     margin-bottom: 10px;
@@ -260,4 +298,244 @@ body {
 
 .additional-info__languages-item {
     color: var(--secondary-text-color);
+}
+
+.memes {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border: 3px solid;
+    border-color: var(--border-color);
+}
+
+.memes-ul {
+    list-style-type: none;
+}
+
+/* Timeline styles */
+.timeline__header {
+    color: var(--secondary-text-color);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.flex-parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+}
+
+.input-flex-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40vw;
+    height: 100px;
+    max-width: 1000px;
+    position: relative;
+    z-index: 0;
+}
+
+.input {
+    width: 25px;
+    height: 25px;
+    background-color: #2c3e50;
+    position: relative;
+    border-radius: 50%;
+}
+
+.input:hover {
+    cursor: pointer;
+}
+
+.input::before,
+.input::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #2c3e50;
+    width: 3vw;
+    height: 4px;
+    max-width: 50px;
+}
+
+.input::before {
+    left: calc(-3vw + 12.5px);
+}
+
+.input::after {
+    right: calc(-3vw + 12.5px);
+}
+
+.input.active {
+    background-color: #2c3e50;
+}
+
+.input.active::before {
+    background-color: #2c3e50;
+}
+
+.input.active::after {
+    background-color: #aeb6bf;
+}
+
+.input.active span {
+    font-weight: 700;
+}
+
+.input.active span::before {
+    font-size: 13px;
+}
+
+.input.active span::after {
+    font-size: 15px;
+}
+
+.input.active~.input,
+.input.active~.input::before,
+.input.active~.input::after {
+    background-color: #aeb6bf;
+}
+
+.input span {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.input span::before,
+.input span::after {
+    visibility: visible;
+    position: absolute;
+    left: 50%;
+}
+
+.input span::after {
+    content: attr(data-year);
+    top: 25px;
+    transform: translateX(-50%);
+    font-size: 14px;
+}
+
+.input span::before {
+    content: attr(data-info);
+    top: -65px;
+    width: 70px;
+    transform: translateX(-5px) rotateZ(-45deg);
+    font-size: 12px;
+    text-indent: -10px;
+}
+
+.description-flex-container {
+    width: 80vw;
+    font-weight: 400;
+    font-size: 22px;
+    margin-top: 100px;
+    max-width: 1000px;
+}
+
+.description-flex-container p {
+    margin-top: 0;
+    display: none;
+}
+
+.description-flex-container p.active {
+    display: block;
+}
+
+@media (width >=1250px) {
+    .input::before {
+        left: -37.5px;
+    }
+
+    .input::after {
+        right: -37.5px;
+    }
+}
+
+@media (width <=850px) {
+    .input {
+        width: 17px;
+        height: 17px;
+    }
+
+    .input::before,
+    .input::after {
+        height: 3px;
+    }
+
+    .input::before {
+        left: calc(-4vw + 8.5px);
+    }
+
+    .input::after {
+        right: calc(-4vw + 8.5px);
+    }
+}
+
+@media (width <=600px) {
+    .flex-parent {
+        justify-content: initial;
+    }
+
+    .input-flex-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        margin-top: 15vh;
+    }
+
+    .input {
+        width: 60px;
+        height: 60px;
+        margin: 0 10px 50px;
+        background-color: #aeb6bf;
+    }
+
+    .input::before,
+    .input::after {
+        content: none;
+    }
+
+    .input span {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .input span::before {
+        top: calc(100% + 5px);
+        transform: translateX(-50%);
+        text-indent: 0;
+        text-align: center;
+    }
+
+    .input span::after {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #ecf0f1;
+    }
+
+    .description-flex-container {
+        margin-top: 30px;
+        text-align: center;
+    }
+}
+
+@media (width <=400px) {
+    body {
+        min-height: 950px;
+    }
 }
